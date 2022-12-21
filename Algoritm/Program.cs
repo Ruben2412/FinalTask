@@ -57,7 +57,6 @@ string[] ChangeCreatedArray(string[] array, int size)
 string[] CutCreatedArray(string[] array, int size, int length)
 {
     string[] massiv = new string[size];
-
     int j = 0;
     for (int i = 0; i < size; i++)
     {
@@ -109,13 +108,20 @@ Console.WriteLine("The second option is more interesting");
 
 ShowArray(arrayString);
 string[] changedArrayString = ChangeCreatedArray(arrayString, number);
-ShowArray(changedArrayString);
+ShowThirdLetterArray(changedArrayString);
 
 
 Console.WriteLine();
 Console.WriteLine("The third option is where you can determine the number of elements in an array cell");
-int leng = InputNumbers("Enter the number of elements in the array cell: ");
+
+Console.WriteLine("Enter the number of elements in the array cell or press ENTER if 3 elements in the array cell are enough.: ");
+int howLong;
+ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+if (keyInfo.Key == ConsoleKey.Enter)
+    howLong = 3;
+else
+    howLong = Convert.ToInt32(Console.ReadLine());
 
 ShowArray(arrayString);
-string[] cutArrayString = CutCreatedArray(arrayString, number, leng);
-ShowArray(cutArrayString);
+string[] cutArrayString = CutCreatedArray(arrayString, number, howLong);
+ShowThirdLetterArray(cutArrayString);
