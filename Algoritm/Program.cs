@@ -15,11 +15,34 @@ int InputNumbers(string input)
     return output;
 }
 
+int CorrectNumb(string input)
+{
+    Console.Write(input);
+    int output;
+    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+    if (keyInfo.Key == ConsoleKey.Enter)
+    {
+        output = 3;
+        return output;
+    }
+    else
+    {
+        output = Convert.ToInt32(Console.ReadLine());
+        return output;
+    }
+}
+
 string InputText(string input)
 {
     Console.Write(input);
     string output = Console.ReadLine();
     return output;
+}
+
+string[] CreateArray()
+{
+    string result = InputText("Enter the values separated by a space: ");
+    return result.Split(" ");
 }
 
 string[] CreateSizeArray(int size)
@@ -36,14 +59,14 @@ string[] CreateSizeArray(int size)
     return array;
 }
 
-string[] ChangeCreatedArray(string[] array, int size)
+string[] ChangeCreatedArray(string[] array)
 {
-    string[] massiv = new string[size];
+    string[] massiv = new string[array.Length];
 
     int length = 3;
     int j = 0;
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= length)
         {
@@ -54,11 +77,11 @@ string[] ChangeCreatedArray(string[] array, int size)
     return massiv;
 }
 
-string[] CutCreatedArray(string[] array, int size, int length)
+string[] CutCreatedArray(string[] array, int length)
 {
-    string[] massiv = new string[size];
+    string[] massiv = new string[array.Length];
     int j = 0;
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= length)
         {
@@ -74,8 +97,7 @@ void ShowArray(string[] array)
     Console.WriteLine();
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(array[i] + "; ");
-        Console.WriteLine();
+        Console.WriteLine(array[i] + ";");
     }
 }
 
@@ -87,41 +109,55 @@ void ShowThirdLetterArray(string[] array)
     {
         if (array[i].Length <= length)
         {
-            Console.Write(array[i] + "; ");
-            Console.WriteLine();
+            Console.WriteLine(array[i] + ";");
         }
     }
 }
 
-int number = InputNumbers("Enter the number of array elements: ");
 
+//Массивы с заданным размером
+int number = InputNumbers("Enter the number of array elements: ");
 string[] arrayString = CreateSizeArray(number);
 
+//Первый вариант
 Console.WriteLine();
 Console.WriteLine("The first is the most boring option");
-
 ShowArray(arrayString);
 ShowThirdLetterArray(arrayString);
 
+//Второй вариант
 Console.WriteLine();
 Console.WriteLine("The second option is more interesting");
-
 ShowArray(arrayString);
-string[] changedArrayString = ChangeCreatedArray(arrayString, number);
+string[] changedArrayString = ChangeCreatedArray(arrayString);
 ShowThirdLetterArray(changedArrayString);
 
-
+//Третий вариант
 Console.WriteLine();
 Console.WriteLine("The third option is where you can determine the number of elements in an array cell");
-
-Console.WriteLine("Enter the number of elements in the array cell or press ENTER if 3 elements in the array cell are enough.: ");
-int leng;
-ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-if (keyInfo.Key == ConsoleKey.Enter)
-    leng = 3;
-else
-    leng = Convert.ToInt32(Console.ReadLine());
+int leng = CorrectNumb("Enter the number of elements in the array cell or press ENTER if 3 elements in the array cell are enough: ");
 
 ShowArray(arrayString);
-string[] cutArrayString = CutCreatedArray(arrayString, number, leng);
+string[] cutArrayString = CutCreatedArray(arrayString, leng);
 ShowArray(cutArrayString);
+
+//Безразмерные массивы
+Console.WriteLine();
+string[] splitArray = CreateArray();
+//Первый вариант
+ShowArray(splitArray);
+ShowThirdLetterArray(splitArray);
+//Второй вариант
+Console.WriteLine();
+ShowArray(splitArray);
+string [] changedSplitArray = ChangeCreatedArray(splitArray);
+ShowArray(changedSplitArray);
+// Третий вариант
+Console.WriteLine();
+Console.WriteLine("Coppy of the third option");
+int lonG = CorrectNumb("Enter the number of elements in the array cell or press ENTER if 3 elements in the array cell are enough: ");
+
+
+ShowArray(splitArray);
+string[] cutSplitArray = CutCreatedArray(splitArray, lonG);
+ShowArray(cutSplitArray);
