@@ -115,13 +115,13 @@ Console.WriteLine();
 Console.WriteLine("The third option is where you can determine the number of elements in an array cell");
 
 Console.WriteLine("Enter the number of elements in the array cell or press ENTER if 3 elements in the array cell are enough.: ");
-int howLong;
+int leng;
 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 if (keyInfo.Key == ConsoleKey.Enter)
-    howLong = 3;
+    leng = 3;
 else
-    howLong = Convert.ToInt32(Console.ReadLine());
+    leng = Convert.ToInt32(Console.ReadLine());
 
 ShowArray(arrayString);
-string[] cutArrayString = CutCreatedArray(arrayString, number, howLong);
-ShowThirdLetterArray(cutArrayString);
+string[] cutArrayString = CutCreatedArray(arrayString, number, leng);
+ShowArray(cutArrayString);
