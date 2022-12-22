@@ -41,6 +41,6 @@ string[] ChangeCreatedArray(string[] array)
 
 string[] splitArray = CreateArray();
 
-string [] changedSplitArray = ChangeCreatedArray(splitArray);
+string[] changedSplitArray = ChangeCreatedArray(splitArray);
 
 Console.WriteLine($"[{string.Join(", ", splitArray)}] -> [{string.Join(", ", changedSplitArray)}]");
