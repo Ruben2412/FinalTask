@@ -121,20 +121,20 @@ string[] arrayString = CreateSizeArray(number);
 
 //Первый вариант
 Console.WriteLine();
-Console.WriteLine("The first is the most boring option");
+Console.WriteLine("1.1");
 ShowArray(arrayString);
 ShowThirdLetterArray(arrayString);
 
 //Второй вариант
 Console.WriteLine();
-Console.WriteLine("The second option is more interesting");
+Console.WriteLine("1.2");
 ShowArray(arrayString);
 string[] changedArrayString = ChangeCreatedArray(arrayString);
 ShowThirdLetterArray(changedArrayString);
 
 //Третий вариант
 Console.WriteLine();
-Console.WriteLine("The third option is where you can determine the number of elements in an array cell");
+Console.WriteLine("1.3");
 int leng = CorrectNumb("Enter the number of elements in the array cell or press ENTER if 3 elements in the array cell are enough: ");
 
 ShowArray(arrayString);
@@ -145,19 +145,20 @@ ShowArray(cutArrayString);
 Console.WriteLine();
 string[] splitArray = CreateArray();
 //Первый вариант
+Console.WriteLine();
+Console.WriteLine("2.1");
 ShowArray(splitArray);
 ShowThirdLetterArray(splitArray);
 //Второй вариант
 Console.WriteLine();
+Console.WriteLine("2.2");
 ShowArray(splitArray);
 string [] changedSplitArray = ChangeCreatedArray(splitArray);
 ShowArray(changedSplitArray);
 // Третий вариант
 Console.WriteLine();
-Console.WriteLine("Coppy of the third option");
+Console.WriteLine("2.3");
 int lonG = CorrectNumb("Enter the number of elements in the array cell or press ENTER if 3 elements in the array cell are enough: ");
-
-
 ShowArray(splitArray);
 string[] cutSplitArray = CutCreatedArray(splitArray, lonG);
 ShowArray(cutSplitArray);
